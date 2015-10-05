@@ -19,26 +19,24 @@
     android:layout_height="wrap_content"
     android:background="?android:attr/selectableItemBackground"
     android:orientation="vertical"
-    android:paddingBottom="@dimen/md_keylines"
-    android:paddingLeft="@dimen/md_keylines"
-    android:paddingRight="@dimen/md_keylines">
+    android:padding="@dimen/tile_padding">
 
     <ImageView
-        android:layout_width="@dimen/tile_wh"
-        android:layout_height="@dimen/tile_wh"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/tile_height"
         android:scaleType="centerCrop"
         android:src="@drawable/paris" />
 
     <ImageView
-        android:layout_width="@dimen/tile_wh"
-        android:layout_height="@dimen/tile_wh"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/tile_height"
         android:alpha="0.3"
         android:background="@color/dark_grey" />
 
     <TextView
         android:id="@+id/tile_title"
-        android:layout_width="@dimen/tile_wh"
-        android:layout_height="@dimen/tile_wh"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/tile_height"
         android:layout_gravity="center"
         android:gravity="center"
         android:text="@string/item_title"
