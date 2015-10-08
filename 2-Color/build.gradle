@@ -14,9 +14,22 @@
  * limitations under the License.
  */
 
-include ':app'
-include ':1-Base'
-include ':2-Color'
-include ':3-Layout'
-include ':4-RecyclerView'
-include ':5-PageElement'
+apply plugin: 'com.android.application'
+
+android {
+    compileSdkVersion 23
+    buildToolsVersion "23.0.1"
+
+    defaultConfig {
+        applicationId "com.example.android.materialdesigncodelab"
+        minSdkVersion 15
+        targetSdkVersion 23
+        versionCode 1
+        versionName "1.0"
+    }
+}
+
+dependencies {
+    compile 'com.android.support:appcompat-v7:23.0.1'
+    compile 'com.android.support:design:23.0.1'
+}
