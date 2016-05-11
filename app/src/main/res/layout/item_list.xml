@@ -17,6 +17,7 @@
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
+    xmlns:tools="http://schemas.android.com/tools"
     android:background="?android:attr/selectableItemBackground"
     android:orientation="vertical"
     android:padding="@dimen/md_keylines">
@@ -26,7 +27,7 @@
         android:layout_width="@dimen/avator_size"
         android:layout_height="@dimen/avator_size"
         android:scaleType="centerCrop"
-        android:src="@drawable/paris_avatar" />
+        tools:src="@drawable/a_avator" />
 
     <TextView
         android:id="@+id/list_title"
@@ -34,7 +35,7 @@
         android:layout_height="wrap_content"
         android:layout_marginLeft="@dimen/md_keylines"
         android:layout_toRightOf="@+id/list_avatar"
-        android:text="@string/item_title"
+        tools:text="@string/item_title"
         android:textAppearance="?attr/textAppearanceListItem"
         android:textSize="@dimen/article_subheading" />
 
@@ -48,7 +49,7 @@
         android:textColor="@color/medium_grey"
         android:ellipsize="end"
         android:singleLine="true"
-        android:text="@string/item_desc"
+        tools:text="@string/item_desc"
         android:textAppearance="?attr/textAppearanceListItem"
         android:textSize="@dimen/list_body" />
 </RelativeLayout>

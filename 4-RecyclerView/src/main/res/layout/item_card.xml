@@ -15,6 +15,8 @@
   ~ limitations under the License.
   -->
 <android.support.v7.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/card_view"
     android:layout_width="match_parent"
     android:layout_height="@dimen/card_height"
@@ -22,8 +24,7 @@
     android:layout_marginBottom="@dimen/md_keylines"
     android:layout_marginLeft="@dimen/md_keylines"
     android:layout_marginRight="@dimen/md_keylines"
-    android:foreground="?attr/selectableItemBackground"
-    android:theme="@style/ThemeOverlay.AppCompat.Dark.ActionBar">
+    android:foreground="?attr/selectableItemBackground">
 
     <RelativeLayout
         android:layout_width="match_parent"
@@ -34,7 +35,7 @@
             android:layout_width="match_parent"
             android:layout_height="@dimen/card_image_height"
             android:scaleType="centerCrop"
-            android:src="@drawable/paris" />
+            tools:src="@drawable/a" />
 
         <TextView
             android:id="@+id/card_title"
@@ -42,8 +43,9 @@
             android:layout_height="@dimen/card_title_height"
             android:layout_alignBottom="@+id/card_image"
             android:layout_marginLeft="@dimen/md_keylines"
-            android:text="@string/item_title"
-            android:textAppearance="@style/TextAppearance.AppCompat.Title" />
+            tools:text="@string/item_title"
+            android:textAppearance="@style/TextAppearance.AppCompat.Title"
+            android:textColor="@color/white" />
 
         <TextView
             android:id="@+id/card_text"
@@ -54,7 +56,7 @@
             android:layout_marginTop="@dimen/md_keylines"
             android:layout_marginBottom="@dimen/md_keylines"
             android:layout_marginRight="@dimen/md_keylines"
-            android:text="@string/item_desc"
+            tools:text="@string/item_desc"
             android:ellipsize="end"
             android:singleLine="true"
             android:textColor="@color/dark_grey"
@@ -69,26 +71,5 @@
             android:textColor="?attr/colorPrimary"
             android:text="Action" />
 
-        <ImageButton
-            android:id="@+id/share_button"
-            android:layout_width="@dimen/cards_button_width"
-            android:layout_height="@dimen/cards_button_height"
-            android:layout_marginRight="@dimen/md_keylines"
-            android:src="@drawable/ic_share_black_24dp"
-            android:layout_below="@+id/card_text"
-            android:layout_alignParentRight="true"
-            style="?android:attr/borderlessButtonStyle"
-            android:tint="@color/button_grey" />
-
-        <ImageButton
-            android:id="@+id/favorite_button"
-            android:layout_width="@dimen/cards_button_width"
-            android:layout_height="@dimen/cards_button_height"
-            android:layout_marginRight="@dimen/md_keylines"
-            android:src="@drawable/ic_favorite_black_24dp"
-            android:layout_below="@+id/card_text"
-            android:layout_toLeftOf="@id/share_button"
-            style="?android:attr/borderlessButtonStyle"
-            android:tint="@color/button_grey" />
     </RelativeLayout>
 </android.support.v7.widget.CardView>

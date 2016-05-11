@@ -21,9 +21,11 @@ import android.support.design.widget.FloatingActionButton;
 import android.support.design.widget.NavigationView;
 import android.support.design.widget.Snackbar;
 import android.support.design.widget.TabLayout;
+import android.support.graphics.drawable.VectorDrawableCompat;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentPagerAdapter;
+import android.support.v4.content.res.ResourcesCompat;
 import android.support.v4.view.GravityCompat;
 import android.support.v4.view.ViewPager;
 import android.support.v4.widget.DrawerLayout;
@@ -64,7 +66,10 @@ public class MainActivity extends AppCompatActivity {
         // Adding menu icon to Toolbar
         ActionBar supportActionBar = getSupportActionBar();
         if (supportActionBar != null) {
-            supportActionBar.setHomeAsUpIndicator(R.drawable.ic_menu_white_24dp);
+            VectorDrawableCompat indicator
+                    = VectorDrawableCompat.create(getResources(), R.drawable.ic_menu, getTheme());
+            indicator.setTint(ResourcesCompat.getColor(getResources(),R.color.white,getTheme()));
+            supportActionBar.setHomeAsUpIndicator(indicator);
             supportActionBar.setDisplayHomeAsUpEnabled(true);
         }
         // Set behavior of Navigation drawer
