@@ -18,6 +18,9 @@ package com.example.android.materialdesigncodelab;
 
 import android.content.Context;
 import android.content.Intent;
+import android.content.res.Resources;
+import android.content.res.TypedArray;
+import android.graphics.drawable.Drawable;
 import android.os.Bundle;
 import android.support.design.widget.Snackbar;
 import android.support.v4.app.Fragment;
@@ -28,6 +31,8 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.ImageButton;
+import android.widget.ImageView;
+import android.widget.TextView;
 import android.widget.Toast;
 
 /**
@@ -40,7 +45,7 @@ public class CardContentFragment extends Fragment {
                              Bundle savedInstanceState) {
         RecyclerView recyclerView = (RecyclerView) inflater.inflate(
                 R.layout.recycler_view, container, false);
-        ContentAdapter adapter = new ContentAdapter();
+        ContentAdapter adapter = new ContentAdapter(recyclerView.getContext());
         recyclerView.setAdapter(adapter);
         recyclerView.setHasFixedSize(true);
         recyclerView.setLayoutManager(new LinearLayoutManager(getActivity()));
@@ -48,14 +53,20 @@ public class CardContentFragment extends Fragment {
     }
 
     public static class ViewHolder extends RecyclerView.ViewHolder {
-
+        public ImageView picture;
+        public TextView name;
+        public TextView description;
         public ViewHolder(LayoutInflater inflater, ViewGroup parent) {
             super(inflater.inflate(R.layout.item_card, parent, false));
+            picture = (ImageView) itemView.findViewById(R.id.card_image);
+            name = (TextView) itemView.findViewById(R.id.card_title);
+            description = (TextView) itemView.findViewById(R.id.card_text);
             itemView.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {
                     Context context = v.getContext();
                     Intent intent = new Intent(context, DetailActivity.class);
+                    intent.putExtra(DetailActivity.EXTRA_POSITION, getAdapterPosition());
                     context.startActivity(intent);
                 }
             });
@@ -98,6 +109,22 @@ public class CardContentFragment extends Fragment {
         // Set numbers of Card in RecyclerView.
         private static final int LENGTH = 18;
 
+        private final String[] mPlaces;
+        private final String[] mPlaceDesc;
+        private final Drawable[] mPlacePictures;
+
+        public ContentAdapter(Context context) {
+            Resources resources = context.getResources();
+            mPlaces = resources.getStringArray(R.array.places);
+            mPlaceDesc = resources.getStringArray(R.array.place_desc);
+            TypedArray a = resources.obtainTypedArray(R.array.places_picture);
+            mPlacePictures = new Drawable[a.length()];
+            for (int i = 0; i < mPlacePictures.length; i++) {
+                mPlacePictures[i] = a.getDrawable(i);
+            }
+            a.recycle();
+        }
+
         @Override
         public ViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
             return new ViewHolder(LayoutInflater.from(parent.getContext()), parent);
@@ -105,7 +132,9 @@ public class CardContentFragment extends Fragment {
 
         @Override
         public void onBindViewHolder(ViewHolder holder, int position) {
-            // no-op
+            holder.picture.setImageDrawable(mPlacePictures[position % mPlacePictures.length]);
+            holder.name.setText(mPlaces[position % mPlaces.length]);
+            holder.description.setText(mPlaceDesc[position % mPlaceDesc.length]);
         }
 
         @Override

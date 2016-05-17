@@ -17,14 +17,16 @@
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
+    xmlns:tools="http://schemas.android.com/tools"
     android:background="?android:attr/selectableItemBackground"
     android:padding="@dimen/tile_padding">
 
     <ImageView
+        android:id="@+id/tile_picture"
         android:layout_width="match_parent"
         android:layout_height="@dimen/tile_height"
         android:scaleType="centerCrop"
-        android:src="@drawable/paris" />
+        tools:src="@drawable/a" />
 
     <ImageView
         android:layout_width="match_parent"
