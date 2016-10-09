@@ -69,7 +69,9 @@
             android:layout_height="match_parent"
             android:orientation="vertical"
             android:paddingLeft="@dimen/article_keylines"
+            android:paddingStart="@dimen/article_keylines"
             android:paddingRight="@dimen/md_keylines"
+            android:paddingEnd="@dimen/md_keylines"
             android:paddingTop="@dimen/md_keylines">
 
             <TextView

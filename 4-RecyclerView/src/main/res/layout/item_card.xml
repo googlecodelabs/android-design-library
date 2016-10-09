@@ -41,8 +41,9 @@
             android:id="@+id/card_title"
             android:layout_width="match_parent"
             android:layout_height="@dimen/card_title_height"
-            android:layout_alignBottom="@+id/card_image"
+            android:layout_alignBottom="@id/card_image"
             android:layout_marginLeft="@dimen/md_keylines"
+            android:layout_marginStart="@dimen/md_keylines"
             tools:text="@string/item_title"
             android:textAppearance="@style/TextAppearance.AppCompat.Title"
             android:textColor="@color/white" />
@@ -51,14 +52,14 @@
             android:id="@+id/card_text"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_below="@+id/card_image"
+            android:layout_below="@id/card_image"
             android:layout_marginLeft="@dimen/md_keylines"
             android:layout_marginTop="@dimen/md_keylines"
             android:layout_marginBottom="@dimen/md_keylines"
             android:layout_marginRight="@dimen/md_keylines"
             tools:text="@string/item_desc"
             android:ellipsize="end"
-            android:singleLine="true"
+            android:maxLines="1"
             android:textColor="@color/dark_grey"
             android:textSize="@dimen/article_subheading" />
 
@@ -66,7 +67,7 @@
             android:id="@+id/action_button"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_below="@+id/card_text"
+            android:layout_below="@id/card_text"
             style="?android:attr/borderlessButtonStyle"
             android:textColor="?attr/colorPrimary"
             android:text="Action" />
